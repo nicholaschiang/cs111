@@ -1,4 +1,4 @@
-def convert_link(link):
+def convert_link(link, lst = []):
     """Takes a linked list and returns a Python list with the same elements.
 
     >>> link = Link(1, Link(2, Link(3, Link(4))))
@@ -7,7 +7,14 @@ def convert_link(link):
     >>> convert_link(Link.empty)
     []
     """
-    "*** YOUR CODE HERE ***"
+    # if link is Link.empty:
+        # return lst
+    # return convert_link(link.rest, lst + [link.first])
+    lst = []
+    while link is not Link.empty:
+        lst += [link.first]
+        link = link.rest
+    return lst
 
 
 def label_squarer(t):
@@ -18,7 +25,9 @@ def label_squarer(t):
     >>> t
     Tree(1, [Tree(9, [Tree(25)]), Tree(49)])
     """
-    "*** YOUR CODE HERE ***"
+    while t.branches.is_leaf():
+        t.label = t.label ** 2
+        t = t.branches[0]
 
 
 def cumulative_mul(t):
